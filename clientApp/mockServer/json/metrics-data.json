@@ -1,0 +1,26 @@
+[{ 
+    "value": 124, 
+    "label": "category1", 
+    "id": "category1"
+},
+{ 
+    "value": 10, 
+    "label": "category2", 
+    "id": "category2"
+},
+{ 
+    "value": 15, 
+    "label": "category3", 
+    "id": "category3"
+},
+{ 
+    "value": 25, 
+    "label": "category4", 
+    "id": "category4"
+},
+{ 
+    "value": 43, 
+    "label": "category5", 
+    "id": "category5"
+}
+]

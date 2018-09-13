@@ -1,0 +1,71 @@
+@import '../../../assets/styles/variables';
+
+#regression-result {
+
+    .summary {
+
+        padding-top: 20px;
+        font-size: 25px;
+        font-weight: bold;
+
+        &.good {
+            color: green;
+        }
+
+        &.bad {
+            color: red;
+        }
+    }
+
+    .center-align {
+        text-align: center;
+    }    
+
+    .build-number {
+        
+    }
+
+    .failed-item {
+        color: red;
+    }
+
+    .col-header-row {
+        font-size: large;
+        font-weight: bold;
+        padding-bottom: 5px;
+        cursor: default;
+        border-bottom: 2px solid #aaa;
+    }
+
+    .col-header {
+        @extend .col-header-row;
+        display: inline-block;
+        border-bottom: none !important;
+    }
+
+    .row-data {
+        padding-bottom: 6px;
+        //font-size: medium;
+        //font-family: serif;
+        border-bottom: 1px solid #aaa;
+    }
+
+    .odd-row {
+        background-color: #f9f9f9;
+        line-height: 1.42857143;
+    }
+
+    .even-row {
+        //font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        //font-size: 14px;
+        line-height: 1.42857143;
+        //color: #333;
+        background-color: #fff;
+    }
+
+    .build-dropdown {
+        display: inline-block !important; 
+        width: 110px !important;         
+        height: 30px !important;
+    }
+}

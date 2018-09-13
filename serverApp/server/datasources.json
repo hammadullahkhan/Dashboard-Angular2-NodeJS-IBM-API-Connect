@@ -1,0 +1,23 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mydb": {
+    "host": "localhost",
+    "port": 27017,
+    "url":  false,
+    "database": "dashboard",
+    "password": "",
+    "name": "mydb",
+    "user": "",
+    "connector": "mongodb"  
+  },
+  "filesystem": { 
+    "name": "fileSystem",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "//opt//QualityDashboard//data//",
+    "maxFileSize": "10485760"
+  }  
+}

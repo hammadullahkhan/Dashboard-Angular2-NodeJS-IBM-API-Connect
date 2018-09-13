@@ -1,0 +1,4 @@
+<cui-app-header [breadcrumb]="breadcrumb" [title]="app_title" [tabs]="tabs" (onCloseApp)="onClose($event)"></cui-app-header>
+<div [cuiLoader]="tabLoader" style="padding-top:40px;">
+    <router-outlet></router-outlet>
+</div>

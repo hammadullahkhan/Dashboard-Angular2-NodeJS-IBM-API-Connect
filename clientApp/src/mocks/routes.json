@@ -1,0 +1,7 @@
+[
+    { "applicationName": "dashboard", "label": "Dashboard Application", "path": "dashboard" },
+    { "label": "RM Newman", "path": "/dashboard/report/RM_Newman", "parentApp": "dashboard" },
+    { "label": "ECM Newman", "path": "/dashboard/report/ECM_Newman", "parentApp": "dashboard" },
+    { "label": "Protractor", "path": "/dashboard/report/Protractor_Results", "parentApp": "dashboard" },
+    { "label": "Unit Test", "path": "/dashboard/report/Unit_Test", "parentApp": "dashboard" }
+]

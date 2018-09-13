@@ -1,0 +1,67 @@
+{
+  "name": "TeamUseCases",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+    , 
+    "mongodb": {
+      "collection": "TeamUseCases"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "guid"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },    
+    "mappedName": {
+      "type": "string",
+      "required": true
+    },
+    "mappedFileName": {
+      "type": "string",
+      "required": true
+    },
+    "team": {
+      "type": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "group": {
+      "type": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "dateCreated": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

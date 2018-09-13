@@ -1,0 +1,28 @@
+<div id="result-detail-component">
+  <cui-container>
+
+  <div id="filter">
+    <cui-row>
+        <cui-column column-size="6" style="display: inline-block;">
+            <h1><span *ngIf="subTitle !== ''" class="sub-title" [innerText]="subTitle"></span></h1>
+        </cui-column>
+        <cui-column column-size="6" align="end" style="display: inline-block;">
+            <select [ngModel]="fileType" (change)="onFileTypeChange($event.target.value)" class="form-control filetype-dropdown">
+                <option *ngFor="let type of fileTypes;" [value]="type" [innerText]="type"></option>
+            </select>
+            <a class="glyphicon glyphicon-save" (click)="downloadJSON()" title="download Json"></a>            
+        </cui-column>
+    </cui-row>
+  </div>
+
+  <div *ngIf="loading" [innerText]="loadingText"></div>
+
+  <div *ngIf="!loading">
+    <hr>
+    <div class="file-content" *ngIf="fileType == 'HTML'" [innerHTML]="fileContent">Loading HTML...</div>
+    <div class="file-content" *ngIf="fileType == 'JSON'"><pre [innerHTML]="fileContent">Loading JSON...</pre></div>
+
+  </div>
+
+  </cui-container>
+</div>

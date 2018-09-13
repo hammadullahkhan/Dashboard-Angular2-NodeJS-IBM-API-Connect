@@ -1,0 +1,16 @@
+@import '../../../assets/styles/variables';
+
+#result-detail-component {
+    
+    .filetype-dropdown {
+        display: inline-block !important; 
+        width: 110px !important;         
+        height: 30px !important;
+    }
+
+    .sub-title {
+        
+    }
+
+    pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+}

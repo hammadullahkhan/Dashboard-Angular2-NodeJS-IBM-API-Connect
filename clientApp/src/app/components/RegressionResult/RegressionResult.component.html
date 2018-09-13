@@ -1,0 +1,66 @@
+<div id="regression-result">
+  <cui-container>
+
+  <div id="filter">
+    <cui-row>
+        <cui-column column-size="6"  style="display: inline-block;">
+            <div *ngIf="!loading">
+                <h4><span *ngIf="buildNumber !== '' && buildDate !== null " class="build-number" [innerText]="buildNumberText + buildNumber + ' @ ' + buildDate"></span></h4>
+            </div>
+        </cui-column>
+
+        <cui-column column-size="6"  style="display: inline-block;">
+            <cui-row>
+                <cui-column column-size="11" align="end" style="display: inline-block;">
+                    <label>Build #</label>        
+                    <select [ngModel]="buildNumber" (change)="onBuildChange($event.target.value)" class="form-control build-dropdown">
+                        <option *ngFor="let build of buildNumbers;" [value]="build" [innerText]="build"></option>
+                    </select>
+                </cui-column>
+                <cui-column column-size="1" align="end" style="display: inline-block;">
+                    <a (click)="toggleGraph()">
+                        <img src="assets/graph.png" width="40" height="35"/>
+                    </a>
+                </cui-column>
+            </cui-row>
+        </cui-column>
+        
+    </cui-row>
+  </div>
+
+  <div *ngIf="loading" [innerText]="loadingText"></div>
+
+  <div *ngIf="!loading">
+    
+    <cui-row class="summary" [ngClass]="getPassFailStyle()">
+        <cui-column column-size="3">Total Assertions: {{totalAssertions}}</cui-column>
+        <cui-column column-size="3">Success: {{successCount}}</cui-column>
+        <cui-column column-size="3">Failed: {{failedCount}}</cui-column>
+        <cui-column column-size="3">Pass %: {{passPercentage}}</cui-column>
+    </cui-row>
+
+    <pie-chart *ngIf="graph && totalAssertions > 0" [success]="successCount" [failed]="failedCount"></pie-chart>
+
+    <br >
+    <!--<hr>-->
+
+    <cui-row class="col-header-row">
+        <cui-column column-size="1" class="col-header"></cui-column>
+        <cui-column column-size="5" class="col-header"><span (click)="orderByField('name')">Name</span><cui-icon [icon]="getTableHeaderStyle('name')"></cui-icon></cui-column>
+        <cui-column column-size="2" class="col-header"><span (click)="orderByField('successCount')">Success</span><cui-icon [icon]="getTableHeaderStyle('successCount')"></cui-icon></cui-column>
+        <cui-column column-size="2" class="col-header"><span (click)="orderByField('failedCount')">Failed</span><cui-icon [icon]="getTableHeaderStyle('failedCount')"></cui-icon></cui-column>
+        <cui-column column-size="2" class="col-header"><span (click)="orderByField('teamName')">Team</span><cui-icon [icon]="getTableHeaderStyle('teamName')"></cui-icon></cui-column>
+    </cui-row>
+
+    <cui-row class="row-data"  *ngFor="let item of items | orderBy: orderby:orderbyType; trackBy:trackByFn;" [ngClass]="{'failed-item': item.failedCount > 0, 'even-row': item.serial%2 === 0, 'odd-row': item.serial%2 != 0 }">
+        <cui-column column-size="1" [innerText]="item.serial"></cui-column>
+        <cui-column column-size="5"><a [routerLink]="['details', item.mappedFileName]" [innerText]="item.name"></a></cui-column>
+        <cui-column column-size="2" [innerText]="item.successCount"></cui-column>
+        <cui-column column-size="2" [innerText]="item.failedCount"></cui-column>
+        <cui-column column-size="2" [innerText]="item.teamName"></cui-column>
+    </cui-row>
+
+  </div>
+
+  </cui-container>
+</div>

@@ -1,0 +1,99 @@
+{
+  "name": "RegressionResults",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+    , 
+    "mongodb": {
+      "collection": "RegressionResults"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "defaultFn": "guid"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    },
+    "totalAssertions": {
+      "type": "number",
+      "required": false,
+      "default": 0
+    },
+    "successCount": {
+      "type": "number",
+      "required": false,
+      "default": 0
+    },
+    "failedCount": {
+      "type": "number",
+      "required": false,
+      "default": 0
+    },
+    "buildNumber": {
+      "type": "string",
+      "required": false,
+      "default": 0
+    },
+    "team": {
+      "type": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        },
+        "email": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "group": {
+      "type": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "required": true
+        }
+      }
+	  },
+    "teamUseCase": {
+      "type": {
+        "id": {
+          "type": "string",
+          "required": true
+        },
+        "mappedName": {
+          "type": "string",
+          "required": true
+        },
+        "mappedFileName": {
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "dateCreated": {
+      "type": "date",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
